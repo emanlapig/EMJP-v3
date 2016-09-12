@@ -1,4 +1,22 @@
 .page {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 20px;
+	background-color: #fff;
+	&.homepage {
+		h1 {
+			color: #00ff00;
+		}
+		h3 {
+			padding: 0px;
+		}
+	}
+}
+
+.form-page {
 	width: 50%;
     background: #f1f1f1;
     margin: 10px 0px;

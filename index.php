@@ -41,13 +41,20 @@ function get_index() {
 <head>
 	<title>EMJP3</title>
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="Main.js"></script>
-	<link rel='stylesheet' type='text/css' href='style.css'>
+	<script type="text/javascript" src="Main.min.js"></script>
+	<link rel='stylesheet' type='text/css' href='css/style.min.css'>
 </head>
 <body>
 
+	<div class="page homepage">
+		<h1>EMJp</h1>
+		<h3>Vocabulary List</h3>
+		<h3>Sentences</h3>
+		<h3>Settings</h3>
+	</div>
+
 	<form id="word-edit" name="word-edit">
-		<div class="page">
+		<div class="form-page">
 			<span id="title">New Word</span><br><br>
 			<input type="text" id="word-input" name="word-input" placeholder="Enter a word"></input><br>
 			<select id="word-type" name="type">
@@ -56,14 +63,14 @@ function get_index() {
 			</select><br>
 			<input type="button" value="Next" id="edit-next-1" name="edit-next-1"></input>
 		</div>
-		<div class="page">
+		<div class="form-page">
 			<div id="reading-input">
 				<!-- furigana inputs -->
 			</div><br>
 			<input type="button" value="Back" id="edit-back-2" name="edit-back-2"></input>
 			<input type="button" value="Next" id="edit-next-2" name="edit-next-2"></input>
 		</div>
-		<div class="page">
+		<div class="form-page">
 			<div id="word-display">
 			</div>
 			<textarea rows="3" id="word-def" name="def" placeholder="Enter a definition"></textarea><br>

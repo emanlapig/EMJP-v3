@@ -1,0 +1,87 @@
+.page {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 20px;
+  background-color: #fff; }
+  .page.homepage h1 {
+    color: #00ff00; }
+  .page.homepage h3 {
+    padding: 0px; }
+
+.form-page {
+  width: 50%;
+  background: #f1f1f1;
+  margin: 10px 0px;
+  padding: 10px;
+  border: 1px dotted #333;
+  box-sizing: border-box; }
+
+.char-input {
+  display: inline-block;
+  width: 50px; }
+
+.fg-input {
+  width: 50px;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center; }
+
+input[type=text].char-input {
+  width: 50px; }
+
+.kj-input {
+  width: 50px;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center; }
+
+input[type=text].fg-input {
+  width: 50px; }
+
+.char-preview {
+  display: inline-block;
+  max-width: 50px; }
+
+.fg-preview {
+  max-width: 50px;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center; }
+
+.kj-preview {
+  max-width: 50px;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center; }
+
+.word {
+  display: inline-block;
+  background: #00ff00; }
+
+a {
+  cursor: pointer; }
+
+.overlay {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.overlay .popup {
+  display: block;
+  position: relative;
+  top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40%;
+  text-align: center;
+  padding: 50px;
+  background-color: #fff; }
+
+/*# sourceMappingURL=style.css.map */
