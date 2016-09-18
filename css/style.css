@@ -1,68 +1,108 @@
+body, html {
+  overflow-x: hidden;
+  position: relative; }
+
+body {
+  margin: 0px; }
+
+header .container {
+  position: fixed;
+  display: block;
+  height: 64px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #0f0;
+  z-index: 1000; }
+  header .container .fa {
+    display: block;
+    position: relative;
+    width: 46px;
+    height: 60px;
+    margin: 0px;
+    padding-top: 12px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 60px;
+    bottom: 0px; }
+    header .container .fa .fa-bars:after {
+      content: '\f0c9'; }
+
 .page {
   display: block;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0%;
+  left: 0%;
   margin: 0px;
-  padding: 20px;
-  background-color: #fff; }
+  padding: 80px 20px 40px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-family: 'Libre Baskerville', serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: margin-left 0.5s ease-out 0s;
+  -moz-transition: margin-left 0.5s ease-out 0s;
+  -o-transition: margin-left 0.5s ease-out 0s;
+  transition: margin-left 0.5s ease-out 0s; }
   .page.homepage h1 {
-    color: #00ff00; }
+    font-weight: 700;
+    font-size: 4em;
+    color: #333; }
   .page.homepage h3 {
+    font-weight: 400;
+    font-size: 1.5em;
     padding: 0px; }
-
-.form-page {
-  width: 50%;
-  background: #f1f1f1;
-  margin: 10px 0px;
-  padding: 10px;
-  border: 1px dotted #333;
-  box-sizing: border-box; }
-
-.char-input {
-  display: inline-block;
-  width: 50px; }
-
-.fg-input {
-  width: 50px;
-  font-size: 16px;
-  line-height: 18px;
-  text-align: center; }
-
-input[type=text].char-input {
-  width: 50px; }
-
-.kj-input {
-  width: 50px;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center; }
-
-input[type=text].fg-input {
-  width: 50px; }
-
-.char-preview {
-  display: inline-block;
-  max-width: 50px; }
-
-.fg-preview {
-  max-width: 50px;
-  font-size: 16px;
-  line-height: 18px;
-  text-align: center; }
-
-.kj-preview {
-  max-width: 50px;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center; }
-
-.word {
-  display: inline-block;
-  background: #00ff00; }
-
-a {
-  cursor: pointer; }
+  .page.word-edit .form-page {
+    width: 100%;
+    background: #f1f1f1;
+    margin: 10px 0px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .page.word-edit .char-input {
+    display: inline-block;
+    width: 50px; }
+  .page.word-edit .fg-input {
+    width: 50px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center; }
+  .page.word-edit input[type=text].char-input {
+    width: 50px; }
+  .page.word-edit .kj-input {
+    width: 50px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center; }
+  .page.word-edit input[type=text].fg-input {
+    width: 50px; }
+  .page.word-edit .char-preview {
+    display: inline-block;
+    max-width: 50px; }
+  .page.word-edit .fg-preview {
+    max-width: 50px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center; }
+  .page.word-edit .kj-preview {
+    max-width: 50px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center; }
+  .page.word-edit .word {
+    display: inline-block;
+    background: #00ff00; }
+  .page.off-right {
+    margin-left: 100%; }
+  .page.off-left {
+    margin-left: -100%; }
+  .page a {
+    color: #333;
+    text-decoration: none; }
 
 .overlay {
   position: absolute;
@@ -72,16 +112,44 @@ a {
   left: 0px;
   top: 0px;
   background-color: rgba(0, 0, 0, 0.5); }
+  .overlay .popup {
+    display: block;
+    position: relative;
+    top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40%;
+    text-align: center;
+    padding: 50px;
+    background-color: #fff; }
 
-.overlay .popup {
+footer .container {
+  position: fixed;
   display: block;
-  position: relative;
-  top: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 40%;
-  text-align: center;
-  padding: 50px;
-  background-color: #fff; }
+  width: 100%;
+  height: 46px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #0f0;
+  z-index: 1000; }
+  footer .container a.hidden {
+    display: none; }
+  footer .container a .fa {
+    display: block;
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    margin: 0px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 46px;
+    right: 0px;
+    bottom: 0px; }
+    footer .container a .fa .fa-plus:after {
+      content: '\f067'; }
+
+a {
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,6 +18,18 @@ EMJP3.View = function( model ) {
 	var _model = model;
 	var _view = this;
 
+	this.page_nav = {
+		show_vocab: function() {
+			$( ".page.homepage" ).addClass( "off-left" ); // hide homepage
+			$( ".page.vocabulary" ).removeClass( "off-right" ); // show vocab list
+			$( "footer a#new-word-btn").removeClass( "hidden" ); // reveal new word btn
+		},
+		show_edit_word: function() {
+			$( ".page.vocabulary" ).addClass( "off-left" ); // hide vocab list
+			$( ".page.word-edit" ).removeClass( "off-right" ); // show word edit form
+		}
+	}
+
 	this.edit_word = {
 		edit_mode: false,
 		step2: function() {
@@ -141,6 +153,16 @@ EMJP3.Controller = function( model, view ) {
 		// cancel delete word button
 		$( "#confirm-delete-word #no" ).on( "click", function( event ) {
 			_view.popups.hide( "#confirm-delete-word" );
+		});
+
+		// main menu
+		$( ".homepage a#vocab-link" ).on( "click", function( event ) {
+			_view.page_nav.show_vocab();
+		});
+
+		// footer
+		$( "footer a#new-word-btn" ).on( "click", function( event ) {
+			_view.page_nav.show_edit_word();
 		});
 	}
 
