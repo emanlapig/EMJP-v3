@@ -7,8 +7,8 @@ EMJP3.Model = function() {
 	this.word_index = 0;
 	this.word = {
 		ind: 0,
-		word_split: [],
-		fg_split: [],
+		wordSplit: [],
+		fgSplit: [],
 		type: "",
 		def: ""
 	}
@@ -33,52 +33,37 @@ EMJP3.View = function( model ) {
 	this.edit_word = {
 		edit_mode: false,
 		step2: function() {
+			$( "form#word-edit .form-page.page2" ).removeClass( "hidden" );
+			$( "form#word-edit .form-page.page1" ).addClass( "hidden" );
+			/*setTimeout( function() {
+				$( "form#word-edit .form-page.page2" ).addClass( "fade-in" );
+			}, 100);*/
 			var model = _model.word;
 			var word = $( "#word-input" ).val();
-			var word_split = word.split( "" );
+			var wordSplit = word.split( "" );
 			if ( _view.edit_word.edit_mode ) {
-				var keep_fg = ( model.word_split == word_split );
-				var fg_split = model.fg_split.split( "," );
+				var keepFg = ( model.wordSplit == wordSplit );
+				var fgSplit = model.fgSplit.split( "," );
+			} else {
+				var keepFg = false;
+				var fgSplit = false;
 			}
-			model.word_split = word_split;
-			for ( var i=0; i<model.word_split.length; i++ ) {
-				var container = document.createElement( "div" );
-				container.setAttribute( "id", "char-input-"+i );
-				container.setAttribute( "class", "char-input" );
-
-				var frag = document.createDocumentFragment();
-
-				var fgInput = document.createElement( "input" );
-				fgInput.setAttribute( "type", "text" );
-				fgInput.setAttribute( "id", "fg-input-"+i );
-				fgInput.setAttribute( "name", "fg-input-"+i );
-				fgInput.setAttribute( "class", "fg-input" );
-				if ( keep_fg ) {
-					fgInput.setAttribute( "value", fg_split[i] );
-				}
-
-				var kjInput = document.createElement( "input" );
-				kjInput.setAttribute( "type", "text" );
-				kjInput.setAttribute( "id", "kj-input-"+i );
-				kjInput.setAttribute( "name", "kj-input-"+i );
-				kjInput.setAttribute( "class", "kj-input" );
-				kjInput.setAttribute( "value", model.word_split[i] );
-
-				frag.appendChild( fgInput );
-				frag.appendChild( kjInput );
-				container.appendChild( frag );
-
-				$( "#reading-input" ).append( container );
-			}
+			model.wordSplit = wordSplit;
+			$( "#word-input2" ).val( word );
+			_view.edit_word.add_fgInputs( keepFg, fgSplit );
 		},
 		step3: function() {
+			$( "form#word-edit .form-page.page3" ).removeClass( "hidden" );
+			setTimeout( function() {
+				$( "form#word-edit .form-page.page3" ).addClass( "fade-in" );
+			}, 100);
 			var model = _model.word;
-			model.fg_split = [];
-			for ( var i=0; i<model.word_split.length; i++ ) {
+			model.fgSplit = [];
+			for ( var i=0; i<model.wordSplit.length; i++ ) {
 				var fg = $( "#fg-input-"+i ).val();
-				model.fg_split.push( fg );
+				model.fgSplit.push( fg );
 
-				var container = document.createElement( "div" );
+				/*var container = document.createElement( "div" );
 				container.setAttribute( "id", "char-preview-"+i );
 				container.setAttribute( "class", "char-preview" );
 
@@ -92,20 +77,60 @@ EMJP3.View = function( model ) {
 				var kjPrev = document.createElement( "div" );
 				kjPrev.setAttribute( "id", "kj-preview-"+i );
 				kjPrev.setAttribute( "class", "kj-preview" );
-				kjPrev.innerHTML = model.word_split[i];
+				kjPrev.innerHTML = model.wordSplit[i];
 
 				frag.appendChild( fgPrev );
 				frag.appendChild( kjPrev );
 				container.appendChild( frag );
 
-				$( "#word-display" ).append( container );
+				$( "#word-display" ).append( container );*/
 			}
 			if ( !_view.edit_word.edit_mode ) {
 				var ind = _model.word_index + 1;
 				$( "#word-index" ).val( ind );
 			}
-			$( "#word-split" ).val( model.word_split );
-			$( "#fg-split" ).val( model.fg_split );
+			$( "#word-split" ).val( model.wordSplit );
+			$( "#fg-split" ).val( model.fgSplit );
+		},
+		add_fgInputs: function( keepFg, fgSplit ) {
+			$( "#reading-input" ).text( "" );
+			var model = _model.word;
+			for ( var i=0; i<model.wordSplit.length; i++ ) {
+				var container = document.createElement( "div" );
+				container.setAttribute( "id", "char-input-"+i );
+				container.setAttribute( "class", "char-input" );
+
+				var frag = document.createDocumentFragment();
+
+				var fgInput = document.createElement( "input" );
+				fgInput.setAttribute( "type", "text" );
+				fgInput.setAttribute( "id", "fg-input-"+i );
+				fgInput.setAttribute( "name", "fg-input-"+i );
+				fgInput.setAttribute( "class", "fg-input" );
+				if ( keepFg ) {
+					fgInput.setAttribute( "value", fgSplit[i] );
+				}
+
+				var kjInput = document.createElement( "input" );
+				kjInput.setAttribute( "type", "text" );
+				kjInput.setAttribute( "id", "kj-input-"+i );
+				kjInput.setAttribute( "name", "kj-input-"+i );
+				kjInput.setAttribute( "class", "kj-input" );
+				kjInput.setAttribute( "value", model.wordSplit[i] );
+
+				frag.appendChild( fgInput );
+				frag.appendChild( kjInput );
+				container.appendChild( frag );
+
+				$( "#reading-input" ).append( container );
+			}
+		},
+		special_reading: function() {
+			var model = _model.word;
+			var word = $( "#word-input" ).val();
+			model.wordSplit = [ word ];
+			$( "#word-input2" ).val( word );
+			_view.edit_word.add_fgInputs( false, false );
 		}
 	}
 
@@ -132,6 +157,7 @@ EMJP3.Controller = function( model, view ) {
 		// edit word form buttons
 		$( "#edit-next-1" ).on( "click", _view.edit_word.step2 );
 		$( "#edit-next-2" ).on( "click", _view.edit_word.step3 );
+		$( "#spec-read" ).on( "click", _view.edit_word.special_reading );
 		$( "#edit-submit" ).on( "click", _controller.edit_word.submit_new );
 
 		// reset form button
@@ -253,8 +279,8 @@ EMJP3.Controller = function( model, view ) {
 					$( "#word-def" ).val( word.def );
 					$( "#word-edit #title" ).text( "Edit Word" );
 					_model.word.ind = word.ind;
-					_model.word.word_split = word.word;
-					_model.word.fg_split = word.reading;
+					_model.word.wordSplit = word.word;
+					_model.word.fgSplit = word.reading;
 					_view.edit_word.edit_mode = true;
 				}
 			});

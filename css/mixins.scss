@@ -11,3 +11,8 @@
 	-moz-box-sizing: $val;
 	box-sizing: $val;
 }
+
+@font-face {
+font-family: 'Noto Sans CJK';
+src: url("../fonts/NotoSansCJKjp-Light.otf") format("opentype");
+}

@@ -1,3 +1,6 @@
+@font-face {
+  font-family: 'Noto Sans CJK';
+  src: url("../fonts/NotoSansCJKjp-Light.otf") format("opentype"); }
 body, html {
   overflow-x: hidden;
   position: relative; }
@@ -39,7 +42,7 @@ header .container {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Noto Sans CJK', serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -60,26 +63,58 @@ header .container {
     background: #f1f1f1;
     margin: 10px 0px;
     padding: 10px;
+    opacity: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-  .page.word-edit .char-input {
-    display: inline-block;
-    width: 50px; }
-  .page.word-edit .fg-input {
-    width: 50px;
-    font-size: 16px;
-    line-height: 18px;
-    text-align: center; }
-  .page.word-edit input[type=text].char-input {
-    width: 50px; }
-  .page.word-edit .kj-input {
-    width: 50px;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center; }
-  .page.word-edit input[type=text].fg-input {
-    width: 50px; }
+    box-sizing: border-box;
+    -webkit-transition: opacity 0.5s ease-out 0s;
+    -moz-transition: opacity 0.5s ease-out 0s;
+    -o-transition: opacity 0.5s ease-out 0s;
+    transition: opacity 0.5s ease-out 0s; }
+    .page.word-edit .form-page input[type=text] {
+      -webkit-appearance: none !important;
+      border-radius: 0 !important;
+      -webkit-border-radius: 0 !important; }
+    .page.word-edit .form-page.page1 {
+      opacity: 1; }
+      .page.word-edit .form-page.page1 input[type=text]#word-input {
+        border: none;
+        font-size: 24px;
+        letter-spacing: 1em;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        text-indent: 1em;
+        background-color: transparent; }
+    .page.word-edit .form-page.page2 {
+      opacity: 1; }
+      .page.word-edit .form-page.page2 #reading-input {
+        text-align: center; }
+        .page.word-edit .form-page.page2 #reading-input .char-input {
+          display: inline-block;
+          width: 48px; }
+        .page.word-edit .form-page.page2 #reading-input .fg-input {
+          width: 48px;
+          font-size: 16px;
+          line-height: 18px;
+          text-align: center; }
+        .page.word-edit .form-page.page2 #reading-input input[type=text].kj-input {
+          display: none; }
+        .page.word-edit .form-page.page2 #reading-input .kj-input {
+          font-size: 24px;
+          line-height: 28px;
+          text-align: center; }
+        .page.word-edit .form-page.page2 #reading-input input[type=text].fg-input {
+          border: 1px solid #eee;
+          margin: 0px !important; }
+      .page.word-edit .form-page.page2 input[type=text]#word-input2 {
+        border: none;
+        font-size: 24px;
+        letter-spacing: 1em;
+        text-align: center;
+        text-indent: 1em;
+        width: 100%;
+        background-color: transparent; }
   .page.word-edit .char-preview {
     display: inline-block;
     max-width: 50px; }
@@ -132,8 +167,6 @@ footer .container {
   left: 0px;
   background-color: #0f0;
   z-index: 1000; }
-  footer .container a.hidden {
-    display: none; }
   footer .container a .fa {
     display: block;
     position: absolute;
@@ -151,5 +184,12 @@ footer .container {
 
 a {
   cursor: pointer; }
+
+.hidden {
+  display: none;
+  opacity: 0; }
+
+.fade-in {
+  opacity: 1 !important; }
 
 /*# sourceMappingURL=style.css.map */

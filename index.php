@@ -40,6 +40,7 @@ function get_index() {
 <html>
 <head>
 	<title>EMJP3</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,25 +73,27 @@ function get_index() {
 
 	<div class="page word-edit off-right">
 		<form id="word-edit" name="word-edit">
-			<div class="form-page">
-				<span id="title">Enter a word.</span><br><br>
+			<span id="title">Enter a word.</span><br><br>
+			<div class="form-page page1">
 				<input type="text" id="word-input" name="word-input"></input><br>
-				<input type="button" value="Next" id="edit-next-1" name="edit-next-1"></input>
+				<input type="button" value="Reading" id="edit-next-1" name="edit-next-1"></input>
 			</div>
-			<div class="form-page">
+			<div class="form-page page2 hidden">
+				<div id="reading-input">
+					<!-- furigana inputs -->
+				</div>
+				<input type="text" id="word-input2" name="word-input2">
+				<input type="button" value="Back" id="edit-back-2" name="edit-back-2"></input>
+				<input type="button" value="Special Reading" id="spec-read" name="spec-read"></input>
+				<input type="button" value="Definition" id="edit-next-2" name="edit-next-2"></input>
+			</div>
+			<div class="form-page page3 hidden">
+				<!--<div id="word-display">
+				</div>-->
 				<select id="word-type" name="type">
 					<option value="n">noun</option>
 					<option value="v">verb</option>
 				</select><br>
-				<div id="reading-input">
-					<!-- furigana inputs -->
-				</div><br>
-				<input type="button" value="Back" id="edit-back-2" name="edit-back-2"></input>
-				<input type="button" value="Next" id="edit-next-2" name="edit-next-2"></input>
-			</div>
-			<div class="form-page">
-				<div id="word-display">
-				</div>
 				<textarea rows="3" id="word-def" name="def" placeholder="Enter a definition"></textarea><br>
 				<input type="hidden" id="word-index" name="ind"></input>
 				<input type="hidden" id="word-split" name="word"></input>
