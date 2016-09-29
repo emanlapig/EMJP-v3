@@ -48,7 +48,7 @@ function get_index() {
 	<script type="text/javascript" src="Main.min.js"></script>
 	<script src="https://use.fontawesome.com/07a03763be.js"></script>
 	<link rel='stylesheet' type='text/css' href='css/style.min.css'>
-	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -59,9 +59,9 @@ function get_index() {
 
 	<div class="page homepage">
 		<h1>EMJp</h1>
-		<h3><a href="javascript:;" id="vocab-link">Vocabulary List</a></h3>
-		<h3>Sentences</h3>
-		<h3>Settings</h3>
+		<h2><a href="javascript:;" id="vocab-link">Vocabulary</a></h2>
+		<h2>Sentences</h2>
+		<h2>Settings</h2>
 	</div>
 
 	<div class="page vocabulary off-right">
@@ -76,16 +76,16 @@ function get_index() {
 			<span id="title">Enter a word.</span><br><br>
 			<div class="form-page page1">
 				<input type="text" id="word-input" name="word-input"></input><br>
-				<input type="button" value="Reading" id="edit-next-1" name="edit-next-1"></input>
+				<input type="button" value="Reading" id="edit-next-1" name="edit-next-1" class="btn"></input>
 			</div>
 			<div class="form-page page2 hidden">
 				<div id="reading-input">
 					<!-- furigana inputs -->
 				</div>
 				<input type="text" id="word-input2" name="word-input2">
-				<input type="button" value="Back" id="edit-back-2" name="edit-back-2"></input>
-				<input type="button" value="Special Reading" id="spec-read" name="spec-read"></input>
-				<input type="button" value="Definition" id="edit-next-2" name="edit-next-2"></input>
+				<input type="button" value="Back" id="edit-back-2" name="edit-back-2" class="btn"></input>
+				<input type="button" value="Special Reading" id="spec-read" name="spec-read" class="btn"></input>
+				<input type="button" value="Definition" id="edit-next-2" name="edit-next-2" class="btn"></input>
 			</div>
 			<div class="form-page page3 hidden">
 				<!--<div id="word-display">
@@ -98,8 +98,8 @@ function get_index() {
 				<input type="hidden" id="word-index" name="ind"></input>
 				<input type="hidden" id="word-split" name="word"></input>
 				<input type="hidden" id="fg-split" name="reading"></input>
-				<input type="button" value="Back" id="edit-back-3" name="edit-back-3"></input>
-				<input type="button" value="Submit" id="edit-submit" name="edit-submit"></input>
+				<input type="button" value="Back" id="edit-back-3" name="edit-back-3" class="btn"></input>
+				<input type="button" value="Submit" id="edit-submit" name="edit-submit" class="btn"></input>
 			</div>
 			<a id="reset-form">Reset Form</a><br><br>
 		</form>

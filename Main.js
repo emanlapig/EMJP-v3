@@ -20,13 +20,20 @@ EMJP3.View = function( model ) {
 
 	this.page_nav = {
 		show_vocab: function() {
-			$( ".page.homepage" ).addClass( "off-left" ); // hide homepage
-			$( ".page.vocabulary" ).removeClass( "off-right" ); // show vocab list
+			_view.page_nav.transitions.slide_left( ".page.homepage", ".page.vocabulary" );
 			$( "footer a#new-word-btn").removeClass( "hidden" ); // reveal new word btn
 		},
 		show_edit_word: function() {
-			$( ".page.vocabulary" ).addClass( "off-left" ); // hide vocab list
-			$( ".page.word-edit" ).removeClass( "off-right" ); // show word edit form
+			_view.page_nav.transitions.slide_left( ".page.vocabulary", ".page.word-edit" );
+			setTimeout( function() {
+				$( "#word-input" ).focus(); // this works in desktop-linked mobile safari only
+			}, 500 );
+		},
+		transitions: {
+			slide_left: function( el1, el2 ) {
+				$( el1 ).addClass( "off-left" );
+				$( el2 ).removeClass( "off-right" );
+			}
 		}
 	}
 

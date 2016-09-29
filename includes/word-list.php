@@ -26,11 +26,11 @@ mysqli_close($con);
 <?php foreach ($words as $key=>$word) : ?>
 	<div class="list-word" id="list-word-<?php echo $word['ind']; ?>">
 		(<?php echo $word['ind']; ?>) 
-		Word: <?php echo $word['word']; ?>; 
-		Reading: <?php echo $word['reading']; ?>; 
+		Word: <span class="jp"><?php echo $word['word']; ?>; </span>
+		Reading: <span class="jp"><?php echo $word['reading']; ?>; </span>
 		Type: <?php echo $word['type']; ?>; 
 		Def: <?php echo $word['def']; ?>; 
-		<input type="button" class="edit-word-btn" id="edit-word-<?php echo $word['ind']; ?>" value="edit" data-word-index="<?php echo $word['ind']; ?>"></input>
-		<input type="button" class="del-word-btn" id="del-word-<?php echo $word['ind']; ?>" value="delete" data-word-index="<?php echo $word['ind']; ?>"></input>
+		<input type="button" class="edit-word-btn btn" id="edit-word-<?php echo $word['ind']; ?>" value="edit" data-word-index="<?php echo $word['ind']; ?>"></input>
+		<input type="button" class="del-word-btn btn" id="del-word-<?php echo $word['ind']; ?>" value="delete" data-word-index="<?php echo $word['ind']; ?>"></input>
 	</div>
 <?php endforeach; ?>

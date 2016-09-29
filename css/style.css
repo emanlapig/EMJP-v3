@@ -8,6 +8,15 @@ body, html {
 body {
   margin: 0px; }
 
+textarea:focus, input:focus {
+  outline: none; }
+
+*:focus {
+  outline: none; }
+
+.jp {
+  font-family: 'Noto Sans CJK'; }
+
 header .container {
   position: fixed;
   display: block;
@@ -15,7 +24,7 @@ header .container {
   width: 100%;
   left: 0px;
   top: 0px;
-  background-color: #0f0;
+  background-color: #c06;
   z-index: 1000; }
   header .container .fa {
     display: block;
@@ -42,7 +51,7 @@ header .container {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  font-family: 'Noto Sans CJK', serif;
+  font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -54,83 +63,86 @@ header .container {
     font-weight: 700;
     font-size: 4em;
     color: #333; }
-  .page.homepage h3 {
+  .page.homepage h2 {
     font-weight: 400;
     font-size: 1.5em;
     padding: 0px; }
-  .page.word-edit .form-page {
-    width: 100%;
-    background: #f1f1f1;
-    margin: 10px 0px;
-    padding: 10px;
-    opacity: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: opacity 0.5s ease-out 0s;
-    -moz-transition: opacity 0.5s ease-out 0s;
-    -o-transition: opacity 0.5s ease-out 0s;
-    transition: opacity 0.5s ease-out 0s; }
-    .page.word-edit .form-page input[type=text] {
-      -webkit-appearance: none !important;
-      border-radius: 0 !important;
-      -webkit-border-radius: 0 !important; }
-    .page.word-edit .form-page.page1 {
-      opacity: 1; }
-      .page.word-edit .form-page.page1 input[type=text]#word-input {
-        border: none;
-        font-size: 24px;
-        letter-spacing: 1em;
-        margin-top: 20px;
-        width: 100%;
-        text-align: center;
-        text-indent: 1em;
-        background-color: transparent; }
-    .page.word-edit .form-page.page2 {
-      opacity: 1; }
-      .page.word-edit .form-page.page2 #reading-input {
-        text-align: center; }
-        .page.word-edit .form-page.page2 #reading-input .char-input {
-          display: inline-block;
-          width: 48px; }
-        .page.word-edit .form-page.page2 #reading-input .fg-input {
-          width: 48px;
-          font-size: 16px;
-          line-height: 18px;
-          text-align: center; }
-        .page.word-edit .form-page.page2 #reading-input input[type=text].kj-input {
-          display: none; }
-        .page.word-edit .form-page.page2 #reading-input .kj-input {
-          font-size: 24px;
-          line-height: 28px;
-          text-align: center; }
-        .page.word-edit .form-page.page2 #reading-input input[type=text].fg-input {
-          border: 1px solid #eee;
-          margin: 0px !important; }
-      .page.word-edit .form-page.page2 input[type=text]#word-input2 {
-        border: none;
-        font-size: 24px;
-        letter-spacing: 1em;
-        text-align: center;
-        text-indent: 1em;
-        width: 100%;
-        background-color: transparent; }
-  .page.word-edit .char-preview {
-    display: inline-block;
-    max-width: 50px; }
-  .page.word-edit .fg-preview {
-    max-width: 50px;
-    font-size: 16px;
-    line-height: 18px;
-    text-align: center; }
-  .page.word-edit .kj-preview {
-    max-width: 50px;
-    font-size: 24px;
-    line-height: 28px;
-    text-align: center; }
-  .page.word-edit .word {
-    display: inline-block;
-    background: #00ff00; }
+  .page.vocabulary #vocab-list {
+    padding-bottom: 100px; }
+  .page.word-edit {
+    /*.char-preview {
+    	display: inline-block;
+    	max-width: 50px;
+    }
+    .fg-preview {
+    	max-width: 50px;
+    	font-size: 16px;
+    	line-height: 18px;
+    	text-align: center;
+    }
+    .kj-preview {
+    	max-width: 50px;
+    	font-size: 24px;
+    	line-height: 28px;
+    	text-align: center;
+    }
+    .word {
+    	display: inline-block;
+    	background: #00ff00;
+    }*/ }
+    .page.word-edit .form-page {
+      width: 100%;
+      margin: 10px 0px;
+      padding: 10px 0px;
+      opacity: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: opacity 0.5s ease-out 0s;
+      -moz-transition: opacity 0.5s ease-out 0s;
+      -o-transition: opacity 0.5s ease-out 0s;
+      transition: opacity 0.5s ease-out 0s; }
+      .page.word-edit .form-page input[type=text] {
+        -webkit-appearance: none !important;
+        border-radius: 10px;
+        -webkit-border-radius: 10px; }
+      .page.word-edit .form-page.page1 {
+        opacity: 1; }
+        .page.word-edit .form-page.page1 input[type=text]#word-input {
+          border: none;
+          font-size: 32px;
+          letter-spacing: 1em;
+          margin-top: 21px;
+          width: 100%;
+          background-color: transparent;
+          padding: 0px !important; }
+      .page.word-edit .form-page.page2 {
+        opacity: 1; }
+        .page.word-edit .form-page.page2 #reading-input {
+          /*.kj-input {
+          	font-size: 24px;
+          	line-height: 28px;
+          	text-align: center;
+          }*/ }
+          .page.word-edit .form-page.page2 #reading-input .char-input {
+            display: inline-block;
+            width: 64px; }
+          .page.word-edit .form-page.page2 #reading-input input[type=text].kj-input {
+            display: none; }
+          .page.word-edit .form-page.page2 #reading-input input[type=text].fg-input {
+            margin: 0px !important;
+            border: none !important;
+            font-size: 14px;
+            line-height: 20px;
+            width: 60px;
+            background-color: #eaeafb; }
+        .page.word-edit .form-page.page2 input[type=text]#word-input2 {
+          border: none;
+          font-size: 32px;
+          letter-spacing: 1em;
+          width: 100%;
+          background-color: transparent;
+          padding: 0px !important; }
   .page.off-right {
     margin-left: 100%; }
   .page.off-left {
@@ -165,7 +177,7 @@ footer .container {
   height: 46px;
   bottom: 0px;
   left: 0px;
-  background-color: #0f0;
+  background-color: #c06;
   z-index: 1000; }
   footer .container a .fa {
     display: block;
@@ -184,6 +196,15 @@ footer .container {
 
 a {
   cursor: pointer; }
+
+.btn {
+  -webkit-appearance: none !important;
+  border: none !important;
+  border-radius: 0px !important;
+  font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
+  background-color: #40464C;
+  color: #fff;
+  padding: 5px 10px; }
 
 .hidden {
   display: none;
